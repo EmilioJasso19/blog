@@ -23,6 +23,6 @@ class PagesController extends Controller
 
     public function mensaje(Request $request)
     {
-        return $request->all();
+        return $request->all(); // cap 07
     }
 }
