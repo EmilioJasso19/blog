@@ -23,7 +23,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(callback: function () {
-    Route::get('/home', [PagesController::class, 'home'])->name('home');
+    Route::get('/dashboard', [PagesController::class, 'home'])->name('dashboard');
 
     Route::get('/saludo/{nombre}', [PagesController::class, 'saludos'])->name('saludos');
 

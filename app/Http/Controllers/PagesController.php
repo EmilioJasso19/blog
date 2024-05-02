@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateMessageRequest;
+//use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function home()
     {
-        return view('home');
+        return view('dashboard');
     }
 
     public function contact()
@@ -21,8 +22,10 @@ class PagesController extends Controller
         return view('saludo', compact('nombre'));
     }
 
-    public function mensaje(Request $request)
+    public function mensaje(CreateMessageRequest $request)
     {
-        return $request->all(); // cap 07
+        $data = $request->all();
+
+        return back()->with('info', 'Mensaje enviado correctamente');
     }
 }

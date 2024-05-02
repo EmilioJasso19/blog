@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ Route::currentRouteName() ? ucwords(str_replace('-', ' ', Route::currentRouteName())) : '' }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,12 +16,25 @@
 
         <!-- Styles -->
         @livewireStyles
+        <style>
+            main {
+                margin: 2% 10%;
+                box-sizing: border-box;
+            }
+            input, textarea, label {
+                display: block;
+            }
+            .error {
+                color: #df052d;
+                font-size: 12px;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-{{--            @livewire('navigation-menu') // Agrega el header con el nombre de la pestana y usuario --}}
+            @livewire('navigation-menu')
 
             <!-- Page Heading -->
             @if (isset($header))

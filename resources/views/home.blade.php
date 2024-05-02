@@ -1,5 +1,4 @@
-@extends('layouts.nav-header')
-
-@section('content')
+<x-app-layout>
     <h1>Home</h1>
-@endsection
+</x-app-layout>
+
